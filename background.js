@@ -1,9 +1,9 @@
 ﻿// This is the background page.
 // it keeps track of prefrences/settings in localStorage
 
-if (typeof chrome !== "undefined") {
-  var browser = chrome;
-}
+// if (typeof chrome !== "undefined") {
+//   var browser = chrome;
+// }\
 
 // TODO: We need to remove this bad code dupliation
 browser.runtime.onMessage.addListener(function (messageEvent, sender, callback)
@@ -12,39 +12,39 @@ browser.runtime.onMessage.addListener(function (messageEvent, sender, callback)
     {
         if ("onlineUpdatesHook" in messageEvent)
 		{
-            chrome.storage.local.set({"onlineUpdatesHook": messageEvent.onlineUpdatesHook});
+            storage.local.set({"onlineUpdatesHook": messageEvent.onlineUpdatesHook});
 		}
         if ("typingUpdatesHook" in messageEvent)
 		{
-            chrome.storage.local.set({"typingUpdatesHook": messageEvent.typingUpdatesHook});
+            storage.local.set({"typingUpdatesHook": messageEvent.typingUpdatesHook});
 		}
 		if ("readConfirmationsHook" in messageEvent)
 		{
-            chrome.storage.local.set({"readConfirmationsHook": messageEvent.readConfirmationsHook});
+            storage.local.set({"readConfirmationsHook": messageEvent.readConfirmationsHook});
 		}
 		if ("safetyDelay" in messageEvent)
 		{
-            chrome.storage.local.set({"safetyDelay": messageEvent.safetyDelay});
+            storage.local.set({"safetyDelay": messageEvent.safetyDelay});
         }
         if ("showReadWarning" in messageEvent)
         {
-            chrome.storage.local.set({"showReadWarning": messageEvent.showReadWarning});
+            storage.local.set({"showReadWarning": messageEvent.showReadWarning});
         }
         if ("saveDeletedMsgs" in messageEvent)
         {
-            chrome.storage.local.set({"saveDeletedMsgs": messageEvent.saveDeletedMsgs});
+            storage.local.set({"saveDeletedMsgs": messageEvent.saveDeletedMsgs});
         }
         if ("showDeviceTypes" in messageEvent)
         {
-            chrome.storage.local.set({"showDeviceTypes": messageEvent.showDeviceTypes});
+            storage.local.set({"showDeviceTypes": messageEvent.showDeviceTypes});
         }
         if ("autoReceiptOnReplay" in messageEvent)
         {
-            chrome.storage.local.set({"autoReceiptOnReplay": messageEvent.autoReceiptOnReplay});
+            storage.local.set({"autoReceiptOnReplay": messageEvent.autoReceiptOnReplay});
         }
         if ("allowStatusDownload" in messageEvent)
         {
-            chrome.storage.local.set({"allowStatusDownload": messageEvent.allowStatusDownload});
+            storage.local.set({"allowStatusDownload": messageEvent.allowStatusDownload});
         }
     }
     else if (messageEvent.name == "getOptions")
@@ -60,7 +60,7 @@ browser.runtime.onMessage.addListener(function (messageEvent, sender, callback)
         var autoReceiptOnReplay = true;
         var allowStatusDownload = true;
 
-        chrome.storage.local.get(['onlineUpdatesHook',
+        storage.local.get(['onlineUpdatesHook',
                                 'typingUpdatesHook',
                                 'readConfirmationsHook', 
                                 'showReadWarning', 

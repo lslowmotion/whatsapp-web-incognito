@@ -31,7 +31,7 @@ function injectScript(scriptName)
 {
 	return new Promise(function(resolve, reject) {
 		var s = document.createElement('script');
-		s.src = chrome.runtime.getURL(scriptName);
+		s.src = browser.runtime.getURL(scriptName);
 		s.onload = function() {
 			this.parentNode.removeChild(this);
 			resolve(true);
@@ -62,7 +62,7 @@ async function injectFromDisk(scriptNames)
 	{
 		var scriptName = scriptNames[i];
 		console.log("looking at " + scriptName);
-		var response = await fetch(chrome.runtime.getURL(scriptName));
+		var response = await fetch(browser.runtime.getURL(scriptName));
 		var scriptText = new TextDecoder("utf-8").decode(await response.body.getReader().read().value);
 		text += "\r\n\r\n" + scriptText;
 	}

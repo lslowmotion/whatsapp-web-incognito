@@ -2,10 +2,10 @@
 This is a content script responsible for some UI.
 */
 
-if (chrome != undefined) 
-{
-	var browser = chrome;
-}
+// if (chrome != undefined) 
+// {
+// 	var browser = chrome;
+// }
 
 initialize();
 
@@ -119,7 +119,7 @@ async function addIconIfNeeded()
     var firstMenuItem = document.getElementsByClassName(UIClassNames.MENU_ITEM_CLASS)[0];
     if (firstMenuItem != undefined)
     {
-        var menuItemElem = await generateSVGElement(chrome.runtime.getURL("images/incognito_gray_24_hollow_9.svg"), "_26lC3", "Incognito Options", 24, "button");
+        var menuItemElem = await generateSVGElement(browser.runtime.getURL("images/incognito_gray_24_hollow_9.svg"), "_26lC3", "Incognito Options", 24, "button");
         menuItemElem.setAttribute("class", UIClassNames.MENU_ITEM_CLASS + " menu-item-incognito");
 
         firstMenuItem.parentElement.insertBefore(menuItemElem, firstMenuItem);
@@ -1053,9 +1053,9 @@ function markMessageNodeDeviceIfPossible(messageNode, msgID)
         
         var imageURL = "";
         if (deviceType == "computer")
-            imageURL = chrome.runtime.getURL("images/computer.svg");
+            imageURL = browser.runtime.getURL("images/computer.svg");
         else if (deviceType == "phone")
-            imageURL = chrome.runtime.getURL("images/phone.svg");
+            imageURL = browser.runtime.getURL("images/phone.svg");
         else
             return;
 
