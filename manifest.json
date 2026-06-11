@@ -11,7 +11,8 @@
    },
    "background":
    {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
    },
    "host_permissions": ["https://web.whatsapp.com/*"],
    "content_scripts": 
@@ -27,5 +28,14 @@
   	  "css": ["styles.css", "lib/css/drop-theme-basic.css"]
   	}
    ],
-	"web_accessible_resources": [{"resources": ["lib/*", "core/*", "images/*"], "matches": ["https://web.whatsapp.com/*"]} ]
+	"web_accessible_resources": [{"resources": ["lib/*", "core/*", "images/*"], "matches": ["https://web.whatsapp.com/*"]} ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "sakkarepkudhewe@laatansaimroni.com",
+      "strict_min_version": "150.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
 }

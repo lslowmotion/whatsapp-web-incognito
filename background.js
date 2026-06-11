@@ -1,9 +1,9 @@
 ﻿// This is the background page.
 // it keeps track of prefrences/settings in localStorage
 
-if (typeof chrome !== "undefined") {
-  var browser = chrome;
-}
+// if (typeof chrome !== "undefined") {
+//   var browser = chrome;
+// }
 
 // TODO: We need to remove this bad code dupliation
 browser.runtime.onMessage.addListener(function (messageEvent, sender, callback)
